@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
 const siteUrl = "https://orkyn.co.uk";
@@ -307,6 +308,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Vercel Analytics */}
         <Analytics />
+        <SpeedInsights />
 
         {/* Google Analytics 4 — add NEXT_PUBLIC_GA_ID to .env.local to enable */}
         <Script
