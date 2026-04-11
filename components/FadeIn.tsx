@@ -39,6 +39,7 @@ export function FadeIn({ children, delay = 0, className = "", direction = "up" }
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : transforms[direction],
         transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
+        willChange: visible ? "auto" : "transform, opacity",
       }}
     >
       {children}
@@ -71,6 +72,7 @@ export function StaggerChildren({ children, className = "", stagger = 80 }: { ch
             opacity: visible ? 1 : 0,
             transform: visible ? "none" : "translateY(20px)",
             transition: `opacity 0.55s ease ${i * stagger}ms, transform 0.55s ease ${i * stagger}ms`,
+            willChange: visible ? "auto" : "transform, opacity",
           }}
         >
           {child}

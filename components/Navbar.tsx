@@ -102,10 +102,10 @@ export function Navbar() {
           className="absolute inset-0 transition-all duration-500"
           style={{
             background: scrolled
-              ? "rgba(255,255,255,0.65)"
-              : "rgba(255,255,255,0.50)",
-            backdropFilter: "blur(40px) saturate(200%)",
-            WebkitBackdropFilter: "blur(40px) saturate(200%)",
+              ? "rgba(255,255,255,0.82)"
+              : "rgba(255,255,255,0.72)",
+            backdropFilter: "blur(16px) saturate(160%)",
+            WebkitBackdropFilter: "blur(16px) saturate(160%)",
           }}
         />
 

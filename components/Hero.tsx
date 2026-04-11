@@ -40,11 +40,11 @@ function InteractiveGrid() {
     if (!ctx) return;
     const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize, { passive: true });
     const CELL = 52;
-    let running = true;
+    let animating = false;
+
     const draw = () => {
-      if (!running) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const cols = Math.ceil(canvas.width / CELL) + 1;
       const rows = Math.ceil(canvas.height / CELL) + 1;
@@ -65,20 +65,45 @@ function InteractiveGrid() {
           ctx.fill();
         }
       }
-      raf.current = requestAnimationFrame(draw);
     };
+
+    // Draw static frame once on mount
     draw();
+
+    const loop = () => {
+      if (!animating) return;
+      draw();
+      raf.current = requestAnimationFrame(loop);
+    };
+
     const onMove = (e: MouseEvent) => {
       const r = canvas.getBoundingClientRect();
       mouse.current = { x: e.clientX - r.left, y: e.clientY - r.top };
-      running = true;
-      if (!raf.current) draw();
+      if (!animating) {
+        animating = true;
+        loop();
+      }
       if (idle.current) clearTimeout(idle.current);
-      idle.current = setTimeout(() => { mouse.current = { x: -999, y: -999 }; }, 2000);
+      idle.current = setTimeout(() => {
+        mouse.current = { x: -999, y: -999 };
+        animating = false;
+        draw(); // draw final resting frame then stop
+      }, 2000);
     };
-    canvas.addEventListener("mousemove", onMove);
-    canvas.addEventListener("mouseleave", () => { mouse.current = { x: -999, y: -999 }; });
-    return () => { running = false; cancelAnimationFrame(raf.current); window.removeEventListener("resize", resize); };
+
+    const onLeave = () => {
+      mouse.current = { x: -999, y: -999 };
+      animating = false;
+      draw();
+    };
+
+    canvas.addEventListener("mousemove", onMove, { passive: true });
+    canvas.addEventListener("mouseleave", onLeave, { passive: true });
+    return () => {
+      animating = false;
+      cancelAnimationFrame(raf.current);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
   return <canvas ref={ref} className="absolute inset-0 w-full h-full pointer-events-auto" aria-hidden="true" />;
 }
@@ -208,9 +233,9 @@ export function Hero() {
             </div>
 
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-[#F5A623]/10 border border-[#F5A623]/20 rounded-full px-4 py-1.5">
-              <span className="w-1.5 h-1.5 bg-[#F5A623] rounded-full animate-pulse" aria-hidden="true" />
-              <span className="text-xs font-semibold text-[#C47D00] uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 bg-[#F5A623]/10 border border-[#F5A623]/20 rounded-full px-4 py-1.5 max-w-full overflow-hidden">
+              <span className="w-1.5 h-1.5 bg-[#F5A623] rounded-full animate-pulse flex-shrink-0" aria-hidden="true" />
+              <span className="text-xs font-semibold text-[#C47D00] uppercase tracking-wider truncate">
                 Software · ERP · Salesforce · Digital Systems
               </span>
             </div>

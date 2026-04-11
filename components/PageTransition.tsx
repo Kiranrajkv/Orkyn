@@ -28,7 +28,6 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       style={{
         opacity,
         transition: "opacity 0.25s ease",
-        minHeight: "100vh",
       }}
     >
       {children}
