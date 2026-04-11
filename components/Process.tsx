@@ -84,7 +84,7 @@ function StepTracker({ active }: { active: number }) {
 
 function CardStack({ active }: { active: number }) {
   return (
-    <div className="relative" style={{ minHeight: "clamp(260px, 40vw, 320px)" }}>
+    <div className="relative">
       {steps.map((step, i) => {
         const Icon = step.icon;
         const isActive = i === active;
@@ -105,7 +105,9 @@ function CardStack({ active }: { active: number }) {
             aria-hidden={!isActive}
             style={{
               position: isActive ? "relative" : "absolute",
-              inset: isActive ? "auto" : 0,
+              top: isActive ? "auto" : 0,
+              left: isActive ? "auto" : 0,
+              right: isActive ? "auto" : 0,
               background: isActive ? step.bg : "white",
               borderColor: isActive ? step.border : "#e5e7eb",
               boxShadow: isActive
