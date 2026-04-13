@@ -411,7 +411,7 @@ export function Hero() {
   return (
     <section
       aria-label="Orkyn Technologies hero section"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-16"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16"
       style={{ isolation: "isolate" }}
     >
       <InteractiveGrid />

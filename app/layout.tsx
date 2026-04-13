@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -6,6 +7,13 @@ import { PageTransition } from "@/components/PageTransition";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Script from "next/script";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const siteUrl = "https://orkyn.ai";
 const siteName = "Orkyn Technologies";
@@ -200,15 +208,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en-GB" className="scroll-smooth overflow-x-hidden">
+    <html lang="en-GB" className={`scroll-smooth overflow-x-hidden ${inter.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0a0a0a" />
         <meta name="format-detection" content="telephone=no" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.svg" sizes="any" />

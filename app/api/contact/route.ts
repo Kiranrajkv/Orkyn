@@ -3,7 +3,42 @@ import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// In-memory rate limiter: max 5 submissions per IP per hour
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5;
+const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+
+  if (entry.count >= RATE_LIMIT) return true;
+
+  entry.count += 1;
+  return false;
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: NextRequest) {
+  // Rate limit by IP
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+    req.headers.get("x-real-ip") ??
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const { firstName, lastName, email, phone, countryCode, message } = body;
@@ -11,6 +46,13 @@ export async function POST(req: NextRequest) {
     if (!firstName || !lastName || !email || !message) {
       return NextResponse.json(
         { error: "Please fill in all required fields." },
+        { status: 400 }
+      );
+    }
+
+    if (!EMAIL_REGEX.test(email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
         { status: 400 }
       );
     }
