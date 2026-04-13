@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const footerLinks = {
   Services: [
-    { label: "Systems and Development", href: "/services/systems-development" },
     { label: "Design and Experience",   href: "/services/design-experience" },
+    { label: "Systems and Development", href: "/services/systems-development" },
     { label: "Growth and Performance",  href: "/services/growth-performance" },
   ],
   Company: [

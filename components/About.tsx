@@ -15,7 +15,7 @@ const values = [
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white" aria-label="About Orkyn Technologies">
+    <section id="about" className="py-20 lg:py-28 bg-white overflow-hidden" aria-label="About Orkyn Technologies">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-24 lg:mb-32">
@@ -33,17 +33,17 @@ export function About() {
           </FadeIn>
 
           <FadeIn direction="right" delay={150}>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
                   <div key={stat.label}
-                    className="p-5 lg:p-7 rounded-2xl border border-border bg-[#FAFAFA] hover:border-[#F5A623]/30 hover:shadow-md transition-all duration-300 group text-center">
-                    <div className="w-9 h-9 rounded-xl bg-[#F5A623]/10 flex items-center justify-center mb-4 mx-auto group-hover:bg-[#F5A623]/20 transition-colors">
-                      <Icon size={16} className="text-[#C47D00]" aria-hidden="true" />
+                    className="p-3 sm:p-5 lg:p-7 rounded-2xl border border-border bg-[#FAFAFA] hover:border-[#F5A623]/30 hover:shadow-md transition-all duration-300 group text-center">
+                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-[#F5A623]/10 flex items-center justify-center mb-2 sm:mb-4 mx-auto group-hover:bg-[#F5A623]/20 transition-colors">
+                      <Icon size={13} className="text-[#C47D00]" aria-hidden="true" />
                     </div>
-                    <p className="font-display text-2xl lg:text-3xl font-black tracking-tight mb-1">{stat.value}</p>
-                    <p className="text-xs text-muted-foreground font-medium leading-tight">{stat.label}</p>
+                    <p className="font-display text-base sm:text-2xl lg:text-3xl font-black tracking-tight mb-1 leading-tight">{stat.value}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground font-medium leading-tight">{stat.label}</p>
                   </div>
                 );
               })}

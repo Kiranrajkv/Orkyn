@@ -11,18 +11,18 @@ import { usePathname } from "next/navigation";
 
 const serviceLinks = [
   {
-    label: "Systems and Product Development",
-    href: "/services/systems-development",
-    icon: Code2,
-    color: "#6466FA",
-    desc: "Custom software, ERP and Salesforce",
-  },
-  {
     label: "UX and Product Design",
     href: "/services/design-experience",
     icon: Palette,
     color: "#a855f7",
     desc: "UX, UI and design systems",
+  },
+  {
+    label: "Systems and Product Development",
+    href: "/services/systems-development",
+    icon: Code2,
+    color: "#6466FA",
+    desc: "Custom software, ERP and Salesforce",
   },
   {
     label: "Growth and Performance Marketing",

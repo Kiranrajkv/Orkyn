@@ -5,19 +5,6 @@ import { FadeIn, StaggerChildren } from "@/components/FadeIn";
 
 const services = [
   {
-    icon: Code2,
-    slug: "systems-development",
-    category: "Systems and Product Development",
-    headline: "Built for your business from the ground up. No templates. No shortcuts.",
-    description: "Custom software, ERP and Salesforce engineered precisely for how you operate today, and strong enough to carry you through what comes next.",
-    chips: ["Scales with you", "No vendor lock-in", "Built from scratch"],
-    color: "#6466FA",
-    glow: "rgba(100,102,250,0.2)",
-    iconBg: "#6466FA15",
-    cta: "Explore Systems",
-    href: "/services/systems-development",
-  },
-  {
     icon: Palette,
     slug: "design-experience",
     category: "UX and Product Design",
@@ -29,6 +16,19 @@ const services = [
     iconBg: "#a855f715",
     cta: "Explore Design",
     href: "/services/design-experience",
+  },
+  {
+    icon: Code2,
+    slug: "systems-development",
+    category: "Systems and Product Development",
+    headline: "Built for your business from the ground up. No templates. No shortcuts.",
+    description: "Custom software, ERP and Salesforce engineered precisely for how you operate today, and strong enough to carry you through what comes next.",
+    chips: ["Scales with you", "No vendor lock-in", "Built from scratch"],
+    color: "#6466FA",
+    glow: "rgba(100,102,250,0.2)",
+    iconBg: "#6466FA15",
+    cta: "Explore Systems",
+    href: "/services/systems-development",
   },
   {
     icon: TrendingUp,
@@ -47,7 +47,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-[#FAFAFA]" aria-label="Orkyn services">
+    <section id="services" className="py-20 lg:py-28 bg-[#FAFAFA] overflow-hidden" aria-label="Orkyn services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <FadeIn className="max-w-2xl mb-12 lg:mb-16">

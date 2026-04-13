@@ -271,15 +271,60 @@ export function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", message: "" });
 
   useEffect(() => {
-    try {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if (tz.includes("India") || tz.includes("Kolkata")) setCountryCode("+91");
-      else if (tz.includes("America")) setCountryCode("+1");
-      else if (tz.includes("Australia")) setCountryCode("+61");
-      else if (tz.includes("Dubai") || tz.includes("Abu_Dhabi")) setCountryCode("+971");
-      else if (tz.includes("Singapore")) setCountryCode("+65");
-      else setCountryCode("+44");
-    } catch {}
+    const detectCountry = async () => {
+      try {
+        const res = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(3000) });
+        const data = await res.json();
+        const dialCode = data.country_calling_code;
+        if (dialCode && ALL_COUNTRIES.find(c => c.code === dialCode)) {
+          setCountryCode(dialCode);
+          return;
+        }
+      } catch {}
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const tzMap: Record<string, string> = {
+          "Asia/Kolkata": "+91", "Asia/Calcutta": "+91",
+          "America/New_York": "+1", "America/Chicago": "+1",
+          "America/Los_Angeles": "+1", "America/Toronto": "+1",
+          "America/Vancouver": "+1", "America/Denver": "+1",
+          "Australia/Sydney": "+61", "Australia/Melbourne": "+61",
+          "Australia/Brisbane": "+61", "Australia/Perth": "+61",
+          "Asia/Dubai": "+971", "Asia/Abu_Dhabi": "+971",
+          "Asia/Singapore": "+65",
+          "Asia/Karachi": "+92",
+          "Asia/Dhaka": "+880",
+          "Asia/Colombo": "+94",
+          "Asia/Kuala_Lumpur": "+60",
+          "Asia/Tokyo": "+81",
+          "Asia/Seoul": "+82",
+          "Asia/Shanghai": "+86", "Asia/Hong_Kong": "+852",
+          "America/Sao_Paulo": "+55",
+          "America/Mexico_City": "+52",
+          "Africa/Johannesburg": "+27",
+          "Africa/Lagos": "+234",
+          "Africa/Nairobi": "+254",
+          "Africa/Cairo": "+20",
+          "Asia/Riyadh": "+966",
+          "Asia/Qatar": "+974",
+          "Europe/Amsterdam": "+31",
+          "Europe/Stockholm": "+46",
+          "Europe/Oslo": "+47",
+          "Europe/Copenhagen": "+45",
+          "Europe/Zurich": "+41",
+          "Europe/Dublin": "+353",
+          "Europe/Madrid": "+34",
+          "Europe/Rome": "+39",
+          "Europe/Berlin": "+49",
+          "Europe/Paris": "+33",
+          "Pacific/Auckland": "+64",
+          "Europe/London": "+44",
+        };
+        const match = tzMap[tz] || Object.entries(tzMap).find(([k]) => tz.startsWith(k.split("/")[0]))?.[1];
+        if (match) setCountryCode(match);
+      } catch {}
+    };
+    detectCountry();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -307,7 +352,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-white" aria-label="Contact Orkyn Technologies">
+    <section id="contact" className="py-20 lg:py-28 bg-white overflow-hidden" aria-label="Contact Orkyn Technologies">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
 

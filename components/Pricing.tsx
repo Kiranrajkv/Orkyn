@@ -47,7 +47,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 lg:py-28 bg-[#0a0a0a]" aria-label="Pricing plans">
+    <section id="pricing" className="py-20 lg:py-28 bg-[#0a0a0a] overflow-hidden" aria-label="Pricing plans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <FadeIn className="text-center max-w-2xl mx-auto mb-5">

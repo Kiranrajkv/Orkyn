@@ -40,7 +40,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-20 lg:py-28 bg-white" aria-label="Frequently asked questions">
+    <section className="py-20 lg:py-28 bg-white overflow-hidden" aria-label="Frequently asked questions">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
 

@@ -4,12 +4,12 @@ import { FadeIn } from "@/components/FadeIn";
 
 export function CtaBanner() {
   return (
-    <section className="py-20 lg:py-24 bg-white" aria-label="Call to action">
+    <section className="py-20 lg:py-24 bg-white overflow-hidden" aria-label="Call to action">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="relative bg-[#0a0a0a] rounded-3xl px-7 py-14 sm:px-12 sm:py-16 lg:px-16 overflow-hidden">
-            <div className="absolute -top-24 -right-24 w-72 h-72 lg:w-96 lg:h-96 bg-[#F5A623] opacity-10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-            <div className="absolute -bottom-16 -left-16 w-48 h-48 lg:w-64 lg:h-64 bg-indigo-500 opacity-10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+            <div className="absolute -top-16 right-0 w-56 h-56 lg:w-96 lg:h-96 bg-[#F5A623] opacity-10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+            <div className="absolute bottom-0 -left-12 w-40 h-40 lg:w-64 lg:h-64 bg-indigo-500 opacity-10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
             <div className="absolute inset-0 opacity-[0.03]"
               style={{ backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)", backgroundSize: "28px 28px" }} aria-hidden="true" />
 

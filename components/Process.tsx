@@ -84,7 +84,9 @@ function StepTracker({ active }: { active: number }) {
 
 function CardStack({ active }: { active: number }) {
   return (
-    <div className="relative">
+    /* CSS grid stacking: all cards occupy the same cell so the container
+       height is always equal to the tallest card — no height jump on switch */
+    <div style={{ display: "grid", gridTemplateColumns: "1fr" }}>
       {steps.map((step, i) => {
         const Icon = step.icon;
         const isActive = i === active;
@@ -104,10 +106,9 @@ function CardStack({ active }: { active: number }) {
             className="rounded-3xl border overflow-hidden w-full"
             aria-hidden={!isActive}
             style={{
-              position: isActive ? "relative" : "absolute",
-              top: isActive ? "auto" : 0,
-              left: isActive ? "auto" : 0,
-              right: isActive ? "auto" : 0,
+              gridColumn: "1",
+              gridRow: "1",
+              position: "relative",
               background: isActive ? step.bg : "white",
               borderColor: isActive ? step.border : "#e5e7eb",
               boxShadow: isActive

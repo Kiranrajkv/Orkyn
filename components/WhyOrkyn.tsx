@@ -12,7 +12,7 @@ const pillars = [
 
 export function WhyOrkyn() {
   return (
-    <section className="py-20 lg:py-28 bg-[#FAFAFA]" aria-label="Why choose Orkyn">
+    <section className="py-20 lg:py-28 bg-[#FAFAFA] overflow-hidden" aria-label="Why choose Orkyn">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <FadeIn className="max-w-2xl mb-12 lg:mb-16">

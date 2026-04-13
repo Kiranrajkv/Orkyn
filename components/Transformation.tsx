@@ -29,7 +29,7 @@ export function Transformation() {
     <section className="py-20 lg:py-28 bg-[#0a0a0a] text-white relative overflow-hidden" aria-label="Before and after Orkyn">
       <div className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] lg:w-[800px] h-[300px] lg:h-[400px] bg-[#F5A623] opacity-[0.06] rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] lg:w-[800px] h-[200px] sm:h-[300px] lg:h-[400px] bg-[#F5A623] opacity-[0.06] rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
