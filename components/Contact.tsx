@@ -9,7 +9,7 @@ import { FadeIn } from "@/components/FadeIn";
 
 const offices = [
   { icon: MapPin, region: "Location",   detail: "UK and India",               sub: null,             href: null },
-  { icon: Mail,   region: "Email",      detail: null,                         sub: null,             href: "mailto:Orkyntechnologies@gmail.com", linkLabel: "Orkyntechnologies@gmail.com" },
+  { icon: Mail,   region: "Email",      detail: null,                         sub: null,             href: "mailto:hello@orkyn.ai", linkLabel: "hello@orkyn.ai" },
   { icon: Clock,  region: "Open Hours", detail: "Monday to Saturday",         sub: "Available 24/7", href: null },
 ];
 

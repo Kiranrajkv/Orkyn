@@ -34,9 +34,9 @@ export function Footer() {
               Custom software, ERP, Salesforce and digital systems built to scale your business. Offices in the UK and India.
             </p>
             <div className="space-y-2">
-              <a href="mailto:Orkyntechnologies@gmail.com"
+              <a href="mailto:hello@orkyn.ai"
                 className="flex items-center gap-2 text-xs text-white/40 hover:text-white transition-colors">
-                <span aria-hidden="true">✉</span> Orkyntechnologies@gmail.com
+                <span aria-hidden="true">✉</span> hello@orkyn.ai
               </a>
               <p className="flex items-center gap-2 text-xs text-white/40">
                 <span aria-hidden="true">📍</span> UK and India

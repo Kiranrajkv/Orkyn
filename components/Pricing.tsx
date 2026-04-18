@@ -1,5 +1,5 @@
 "use client";
-import { Check, Zap, RefreshCw } from "lucide-react";
+import { Check, Zap, RefreshCw, Layers } from "lucide-react";
 import { FadeIn, StaggerChildren } from "@/components/FadeIn";
 
 const plans = [
@@ -10,8 +10,8 @@ const plans = [
     period: "one-off",
     tag: "Fixed scope",
     tagColor: "#6366F1",
-    tagline: "You have a clear vision. We will build it precisely.",
-    description: "A focused, fixed-scope project from discovery to deployment in four weeks. No retainer, no ongoing commitment and no loose ends.",
+    tagline: "A clear vision. Built precisely. Delivered in four weeks.",
+    description: "A focused, fixed-scope project from discovery to deployment. No retainer, no ongoing commitment and no loose ends.",
     features: [
       "Full discovery and requirements session",
       "System design and architecture",
@@ -22,6 +22,7 @@ const plans = [
     ],
     cta: "Start Your Sprint",
     popular: false,
+    customPrice: false,
   },
   {
     icon: RefreshCw,
@@ -30,8 +31,8 @@ const plans = [
     period: "/month",
     tag: "Most popular",
     tagColor: "#F5A623",
-    tagline: "A senior engineering team. On your side. Every month.",
-    description: "Continuous development, support and evolution for businesses that need to keep moving. More output for less than a single mid-level hire.",
+    tagline: "Your engineering team. On your side. Every month.",
+    description: "A dedicated team that builds, iterates and evolves your systems every month. More output than a full-time hire at a fraction of the cost.",
     features: [
       "Everything in the One-Month Sprint",
       "Dedicated monthly sprint cycle",
@@ -42,6 +43,28 @@ const plans = [
     ],
     cta: "Start Your Partnership",
     popular: true,
+    customPrice: false,
+  },
+  {
+    icon: Layers,
+    name: "Custom Engagement",
+    price: "Let's Talk",
+    period: "",
+    tag: "Built around you",
+    tagColor: "#10B981",
+    tagline: "Not every business fits a standard plan — and that is fine.",
+    description: "Multiple systems, larger teams, enterprise scale or complex builds. Tell us what you are building and we will scope it properly with a fixed price.",
+    features: [
+      "Full discovery across all systems and teams",
+      "Custom architecture and delivery plan",
+      "Fixed price — scoped before we start",
+      "Dedicated team for the duration",
+      "Priority support and direct access",
+      "Built to scale with your business",
+    ],
+    cta: "Tell Us What You Need",
+    popular: false,
+    customPrice: true,
   },
 ];
 
@@ -64,7 +87,7 @@ export function Pricing() {
           No payment required until our discovery session confirms we are the right fit for each other.
         </p>
 
-        <StaggerChildren className="grid md:grid-cols-2 gap-4 lg:gap-6 max-w-4xl mx-auto items-stretch" stagger={120}>
+        <StaggerChildren className="grid md:grid-cols-3 gap-4 lg:gap-5 max-w-6xl mx-auto items-stretch" stagger={120}>
           {plans.map((plan) => {
             const Icon = plan.icon;
             return (
@@ -124,18 +147,29 @@ export function Pricing() {
                   </div>
                 </div>
 
-                <p className="text-sm font-semibold text-white mb-1.5">{plan.tagline}</p>
-                <p className="text-sm text-white/40 leading-relaxed mb-6">{plan.description}</p>
+                <p className="text-sm font-semibold text-white mb-1.5 min-h-[2.5rem]">{plan.tagline}</p>
+                <p className="text-sm text-white/40 leading-relaxed mb-6 min-h-[5rem]">{plan.description}</p>
 
                 {/* Price */}
                 <div className="flex items-end gap-1.5 mb-7">
-                  <span
-                    className="font-display text-4xl lg:text-5xl font-black tracking-tight"
-                    style={{ color: plan.popular ? "#F5A623" : "#ffffff" }}
-                  >
-                    {plan.price}
-                  </span>
-                  <span className="text-white/40 text-sm pb-2">{plan.period}</span>
+                  {plan.customPrice ? (
+                    <div>
+                      <span className="font-display text-3xl font-black tracking-tight" style={{ color: "#10B981" }}>
+                        Let&apos;s Talk
+                      </span>
+                      <p className="text-xs text-white/30 mt-1">Typically from $8,000</p>
+                    </div>
+                  ) : (
+                    <>
+                      <span
+                        className="font-display text-4xl lg:text-5xl font-black tracking-tight"
+                        style={{ color: plan.popular ? "#F5A623" : "#ffffff" }}
+                      >
+                        {plan.price}
+                      </span>
+                      <span className="text-white/40 text-sm pb-2">{plan.period}</span>
+                    </>
+                  )}
                 </div>
 
                 {/* Divider */}
