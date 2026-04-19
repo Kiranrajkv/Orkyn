@@ -40,7 +40,7 @@ export default function TermsOfService() {
               These Terms of Service govern your engagement with Orkyn Technologies, a custom software and digital systems agency with offices in UK and India. By engaging our services, submitting an enquiry through our website, or entering into a project agreement with us, you agree to these terms in full.
             </p>
             <p className="mt-3">
-              If you do not agree to these terms, please do not engage our services. For any questions, contact us at <a href="mailto:Orkyntechnologies@gmail.com" className="text-[#C47D00] underline">Orkyntechnologies@gmail.com</a>.
+              If you do not agree to these terms, please do not engage our services. For any questions, contact us at <a href="mailto:hello@orkyn.ai" className="text-[#C47D00] underline">hello@orkyn.ai</a>.
             </p>
           </section>
 
@@ -210,8 +210,8 @@ export default function TermsOfService() {
             <div className="mt-4 p-5 rounded-2xl bg-[#FAFAFA] border border-border">
               <p className="font-semibold text-foreground">Orkyn Technologies</p>
               <p className="mt-1">UK and India</p>
-              <a href="mailto:Orkyntechnologies@gmail.com" className="text-[#C47D00] underline mt-1 inline-block">
-                Orkyntechnologies@gmail.com
+              <a href="mailto:hello@orkyn.ai" className="text-[#C47D00] underline mt-1 inline-block">
+                hello@orkyn.ai
               </a>
             </div>
           </section>
@@ -221,7 +221,7 @@ export default function TermsOfService() {
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">2026 Orkyn Technologies. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">2026 Orkyn. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>

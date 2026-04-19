@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
               Orkyn Technologies is a custom software, ERP and digital systems agency with offices in UK and India. We are the data controller for personal information collected through our website at orkyn.ai and through our client engagements.
             </p>
             <p className="mt-3">
-              You can contact us regarding any privacy matters at <a href="mailto:Orkyntechnologies@gmail.com" className="text-[#C47D00] underline">Orkyntechnologies@gmail.com</a>.
+              You can contact us regarding any privacy matters at <a href="mailto:hello@orkyn.ai" className="text-[#C47D00] underline">hello@orkyn.ai</a>.
             </p>
           </section>
 
@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4">To exercise any of these rights, contact us at <a href="mailto:Orkyntechnologies@gmail.com" className="text-[#C47D00] underline">Orkyntechnologies@gmail.com</a>. We will respond within 30 days. You also have the right to lodge a complaint with the Information Commissioner&apos;s Office (ICO) at ico.org.uk.</p>
+            <p className="mt-4">To exercise any of these rights, contact us at <a href="mailto:hello@orkyn.ai" className="text-[#C47D00] underline">hello@orkyn.ai</a>. We will respond within 30 days. You also have the right to lodge a complaint with the Information Commissioner&apos;s Office (ICO) at ico.org.uk.</p>
           </section>
 
           <section>
@@ -196,7 +196,7 @@ export default function PrivacyPolicy() {
             <div className="mt-4 p-5 rounded-2xl bg-[#FAFAFA] border border-border">
               <p className="font-semibold text-foreground">Orkyn Technologies</p>
               <p className="mt-1">UK and India</p>
-              <a href="mailto:Orkyntechnologies@gmail.com" className="text-[#C47D00] underline mt-1 inline-block">Orkyntechnologies@gmail.com</a>
+              <a href="mailto:hello@orkyn.ai" className="text-[#C47D00] underline mt-1 inline-block">hello@orkyn.ai</a>
             </div>
           </section>
 
@@ -205,7 +205,7 @@ export default function PrivacyPolicy() {
 
       <footer className="border-t border-border mt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">2026 Orkyn Technologies. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">2026 Orkyn. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>

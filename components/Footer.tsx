@@ -63,7 +63,7 @@ export function Footer() {
         <div className="h-px bg-white/8 mb-8" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/25">2026 Orkyn Technologies Pvt Ltd. All rights reserved.</p>
+          <p className="text-xs text-white/25">2026 Orkyn. All rights reserved.</p>
 
         </div>
       </div>
