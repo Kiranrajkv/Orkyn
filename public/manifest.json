@@ -1,0 +1,15 @@
+{
+  "name": "Orkyn Technologies",
+  "short_name": "Orkyn",
+  "description": "Custom software, ERP, SaaS, AI and Salesforce solutions built precisely for your business.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" },
+    { "src": "/icon", "sizes": "32x32", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-icon", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}
